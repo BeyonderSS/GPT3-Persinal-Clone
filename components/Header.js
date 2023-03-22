@@ -5,19 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 const Header = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const dummyPastChats = [
-    {
-      id: 1,
-      user: "John Doe",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      date: "2022-03-18T12:00:00Z",
-    },
-    {
-      id: 2,
-      user: "Jane Doe",
-      message:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      date: "2022-03-19T14:30:00Z",
-    },
+  
   ];
   const chatRef = useRef();
   const toggleChat = () => setIsChatOpen(!isChatOpen);
@@ -45,12 +33,12 @@ const Header = () => {
       </div>
 
       <div className="flex items-center tracking-wider justify-center uppercase font-semibold text-lg text-gray-300">
-        GPT<span className="font-extrabold text-blue-600">3</span> Clone
+        GPT3 Clone
       </div>
 
       <div
         ref={chatRef}
-        className={`transform duration-500 ease-in-out fixed top-0 bottom-0 left-0 w-64 md:w-auto z-50 overflow-y-auto bg-[#242424] ${
+        className={`transform duration-500 ease-in-out fixed top-0 bottom-0 left-0 w-64 md:w-96 z-50 overflow-y-auto bg-[#242424] ${
           isChatOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -59,7 +47,9 @@ const Header = () => {
             className="h-6 w-6 absolute right-4 top-4 cursor-pointer text-blue-500 hover:text-blue-700 "
             onClick={() => setIsChatOpen(false)}
           />
-          <h2 className="text-lg font-bold mb-4 uppercase">Ch<span className="font-extrabold text-blue-600">a</span>ts</h2>
+          <h2 className="text-lg font-bold mb-4 uppercase">
+            Chats
+          </h2>
           <ul>
             {dummyPastChats.map((chat) => (
               <li key={chat.id} className="mb-4">
