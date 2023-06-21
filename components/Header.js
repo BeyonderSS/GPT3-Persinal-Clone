@@ -33,7 +33,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center tracking-wider justify-center uppercase font-semibold text-lg text-gray-300">
-        GPT3 Clone
+        IVY BOT
       </div>
 
       <div
@@ -48,7 +48,7 @@ const Header = () => {
             onClick={() => setIsChatOpen(false)}
           />
           <h2 className="text-lg font-bold mb-4 uppercase">
-            Chats
+            Prompts
           </h2>
           <ul>
             {dummyPastChats.map((chat) => (
