@@ -5,6 +5,7 @@ const Chat = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const handleSearch = async () => {
     setLoading(true);
     const response = await fetch(`/api/search?q=${searchTerm}`);
@@ -13,11 +14,9 @@ const Chat = () => {
     setLoading(false);
   };
 
-  console.log(searchResult);
-
   return (
-    <div className="flex flex-col h-screen bg-gray-900">
-      <div className="flex items-center justify-center h-full">
+    <div className="flex flex-col min-h-screen bg-gray-900">
+      <div className="h-full flex justify-center my-10" >
         <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
           <div className="mb-4">
             <input
@@ -54,6 +53,18 @@ const Chat = () => {
                         >
                           {result.title}
                         </a>
+                        <p className="text-gray-400">{result.snippet}</p>
+                        <div className="flex items-center mt-2">
+                          <img
+                            src={result.thumbnail}
+                            alt={result.title}
+                            className="w-16 h-16 mr-4 object-contain rounded-lg"
+                          />
+                          <div>
+                            <p className="text-gray-400 font-medium">{result.source}</p>
+                            <p className="text-gray-400 text-sm">{result.date}</p>
+                          </div>
+                        </div>
                       </li>
                     ))}
                   </ul>
